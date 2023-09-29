@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib>
 #include <ctime>
 
 float numero_aleatorio();
@@ -10,11 +9,11 @@ float* atualiza_temp(float vetor[], int tam, float media);
 using namespace std;
 
 int main() {
-    float valor_digitado[10];
+    float valor_digitado[250];
     int tamanho_vetor = sizeof(valor_digitado) / sizeof(valor_digitado[0]);
     float maior_ , menor_, media_;
-    float * vetor_atuazado; 
-    // Inicializa a semente para a geração de números aleatórios
+    float* vetor_atualizado; 
+
     srand(static_cast<unsigned>(time(nullptr)));
 
     for (int i = 0; i < tamanho_vetor; i++) {
@@ -32,14 +31,14 @@ int main() {
     "\nMedia : "<< media_ <<  endl;
 
 
-    vetor_atuazado = atualiza_temp(valor_digitado, tamanho_vetor, media_);
+    vetor_atualizado = atualiza_temp(valor_digitado, tamanho_vetor, media_);
 
     for (int i = 0; i < tamanho_vetor; i++) {
-        cout << "temperatura atualizada: " <<vetor_atuazado[i] << endl;
+        cout << "temperatura atualizada: " <<vetor_atualizado[i] << endl;
     }
 
-    // Não se esqueça de liberar a memória alocada
-    delete[] vetor_atuazado;
+    // liberar a memória alocada
+    delete[] vetor_atualizado;
 
     return 0;
 }
@@ -47,7 +46,7 @@ int main() {
 
 float numero_aleatorio() {
     float valor_random = 1 + 30.0 *(rand() %100) / 3000.0; 
-    cout << "temperatura: " << valor_random << endl;
+    // cout << "temperatura: " << valor_random << endl;
     return valor_random;
 }
 
